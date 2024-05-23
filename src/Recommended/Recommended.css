@@ -1,0 +1,32 @@
+.recommended-flex{
+    display: flex; 
+    margin-left: 20px;
+    justify-content: space-around;
+}
+
+.recommended-title{
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top:10px;
+    font-size: 20px;
+}
+
+.active{
+    background-color: black;
+    color: white;
+}
+.recomended-query{
+    display: flex;
+    gap: 9em;
+}
+
+.search-div{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+@media only screen and (max-width:650px){
+    .recommended-flex{
+        display: none;
+    }
+}

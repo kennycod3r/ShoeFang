@@ -1,0 +1,84 @@
+:root{
+    --secondary: rgba(255, 255, 255, 1)
+}
+.hero{
+    background-size: cover;
+    background-position:center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-image:url("C:\Users\KENNY\Ecommerceproject\ecommerceproject\src\img\winterHero.webp");
+    position: relative;
+    min-height: 80svh;
+    color: var(--secondary);
+    background-color: rgba(34, 33, 33, 0.277);
+    background-blend-mode: darken;
+}
+
+.hero-Text{
+    position: absolute;
+    bottom: 0;
+    min-width: 100%;
+    top: 50%;
+    padding: 0px 13px;
+    text-align: start;
+}
+
+.hero-line{
+    border-top: 1px solid rgb(204, 204, 204);
+    padding: 20px;
+    font-size: 20px;
+    margin-top: 12px;
+    background: transparent; 
+}
+
+.hero-sales-text{
+    justify-content: space-between;
+    align-items: baseline;
+    background: transparent;
+    padding-bottom: 15px;
+}
+
+.hero-headtext{
+    color:var(--secondary);
+    font-size: 5.5rem;
+    line-height: .6;
+    letter-spacing: 1.9px;
+}
+
+.hero-btn{
+    background-color: var(--secondary);
+    color: black;
+    padding: 18px 18px;
+    max-height: 3.8em;
+    border-radius: 30px;
+    font-size: 15px;
+    border: none;
+    outline: none;
+}
+
+
+
+@media only screen and (max-width:650px){
+    .hero{
+        background-color: rgba(34, 33, 33, 0.329);
+    }
+
+    .hero-line{
+        display: none;
+    }
+
+    .hero-sales-text{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero-headtext{ 
+        font-size: 3.2rem;
+        font-weight: 400;
+        letter-spacing: 1px;
+        padding-bottom: 30px;
+    }
+    
+}

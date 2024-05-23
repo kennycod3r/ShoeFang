@@ -1,0 +1,32 @@
+.sidebar-title {
+  font-weight: normal;
+}
+
+.sidebar {
+  width: 25%;
+  position: fixed;
+  height: 100%;
+  border-right: 2px solid #e5e5e5;
+  z-index: 999;
+  background-color: #f5f5f2;
+  top: 0;
+  display: grid;
+  transition: var(--animationSmooth);
+  grid-template-columns: 1fr 1fr;
+}
+.close-button {
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+
+.close-button:hover svg {
+  transform: scale(1.1);
+  color: rgb(181, 11, 11);
+}
+@media only screen and (max-width: 650px) {
+  .sidebar {
+    width: 100%;
+  }
+}
