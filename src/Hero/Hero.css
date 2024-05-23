@@ -1,84 +1,80 @@
-:root{
-    --secondary: rgba(255, 255, 255, 1)
-}
-.hero{
-    background-size: cover;
-    background-position:center;
-    background-repeat: no-repeat;
-    overflow: hidden;
-    background-image:url("C:\Users\KENNY\Ecommerceproject\ecommerceproject\src\img\winterHero.webp");
+:root {
+    --secondary: rgba(255, 255, 255, 1);
+    --background-color: rgba(34, 33, 33, 0.277);
+    --text-color: #181818;
+    --background-blend: darken;
+    --article-font-size: 15px;
+    --hero-padding: 10px;
+    --font-weight-bold: bold;
+    --font-size-large: 3em;
+  }
+  
+  .hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--hero-padding);
+    background: url("C:/Users/KENNY/Ecommerceproject/ecommerceproject/src/assets/nike.svg") center/contain repeat,
+      var(--background-color);
+    background-blend-mode: var(--background-blend);
+  }
+  
+  .hero-text {
+    background-color: #f5f5f2;
+    color: var(--text-color);
+    height: 60%;
+    max-width: 80%;
     position: relative;
-    min-height: 80svh;
-    color: var(--secondary);
-    background-color: rgba(34, 33, 33, 0.277);
-    background-blend-mode: darken;
-}
-
-.hero-Text{
-    position: absolute;
-    bottom: 0;
-    min-width: 100%;
-    top: 50%;
-    padding: 0px 13px;
-    text-align: start;
-}
-
-.hero-line{
-    border-top: 1px solid rgb(204, 204, 204);
-    padding: 20px;
-    font-size: 20px;
-    margin-top: 12px;
-    background: transparent; 
-}
-
-.hero-sales-text{
-    justify-content: space-between;
-    align-items: baseline;
-    background: transparent;
-    padding-bottom: 15px;
-}
-
-.hero-headtext{
-    color:var(--secondary);
-    font-size: 5.5rem;
-    line-height: .6;
-    letter-spacing: 1.9px;
-}
-
-.hero-btn{
-    background-color: var(--secondary);
-    color: black;
-    padding: 18px 18px;
-    max-height: 3.8em;
-    border-radius: 30px;
-    font-size: 15px;
-    border: none;
-    outline: none;
-}
-
-
-
-@media only screen and (max-width:650px){
-    .hero{
-        background-color: rgba(34, 33, 33, 0.329);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 2px;
+  }
+  
+  .yzy {
+    width: 100%;
+  }
+  
+  .hero-sales-text {
+    padding: 2.5em;
+    display: grid;
+    gap: 4px;
+  }
+  
+  .hero-headtext {
+    font-weight: var(--font-weight-bold);
+    color: var(--text-color);
+    font-size: var(--font-size-large);
+    line-height: 1.095;
+    margin-bottom: 10px;
+  }
+  
+  .article {
+    padding: 18px;
+    font-size: var(--article-font-size);
+    color: var(--text-color);
+    font-weight: 500;
+    cursor: pointer;
+    line-height: 2px;
+    text-decoration: underline;
+    text-transform: uppercase;
+  }
+  
+  @media only screen and (max-width: 650px) {
+    .hero {
+      background-color: rgba(34, 33, 33, 0.329);
     }
-
-    .hero-line{
-        display: none;
+  
+    .hero-sales-text {
+      text-align: center;
+      padding: 20px;
     }
-
-    .hero-sales-text{
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
+    .hero-text{
+        display: block;
     }
-
-    .hero-headtext{ 
-        font-size: 3.2rem;
-        font-weight: 400;
-        letter-spacing: 1px;
-        padding-bottom: 30px;
+    .hero-headtext {
+      font-size: 2.2rem;
+      padding-bottom: 30px;
     }
-    
-}
+  }
+  

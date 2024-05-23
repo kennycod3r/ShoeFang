@@ -1,5 +1,6 @@
 import { BsFillBagHeartFill } from "react-icons/bs";
 import stripped from "../img/plainT.webp";
+import LogoFloater from "./logoFloater";
 
 export default function Card({
   img,
