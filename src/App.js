@@ -1,11 +1,14 @@
 import ShoeFang from "./Pages/ShoeFang";
+import React from "react";
 
 function App() {
-  return(
+
+
+  return (
     <div>
-     <ShoeFang/>
+      <ShoeFang />
     </div>
-  )
+  );
 }
 
 export default App;

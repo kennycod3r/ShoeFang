@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom";
 import "./BagItems.css";
+import React from "react";
 import BagItem from "../components/BagItem";
 import { GiShoppingCart } from "react-icons/gi";
 import { Link } from "react-router-dom";

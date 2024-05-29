@@ -1,4 +1,4 @@
-
+import React from "react";
 import HeadText from "../HeadText/HeadText";
 
 export default function CheckOut() {

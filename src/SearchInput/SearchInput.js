@@ -1,4 +1,5 @@
 import './searchInput.css';
+import React from "react";
 //import {FiHeart} from 'react-icons/fi';
 
 

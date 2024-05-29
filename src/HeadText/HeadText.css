@@ -52,11 +52,11 @@
 
 .div-one div {
   cursor: pointer;
-  transition: all 0.4s ease;
+  transition: var(--animationSmooth);
 }
 
 .div-one div:hover {
-  animation: pulse 0.4s ease;
+ transform: scale(1.1);
   color: var(--linkColor);
 }
 
@@ -92,11 +92,13 @@
   opacity: 0.7;
 }
 
-.hamburger-icon, .acc-icon, .account-svg{
+.hamburger-icon, .acc-icon{
   width: 25px;
   height: 20px;
   color: inherit;
 }
+
+
 .placeholder {
   min-height: 100svh; /* Adjust the height to match the expected content */
   display: flex;

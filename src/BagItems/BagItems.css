@@ -72,7 +72,7 @@
   color: #c9c9c9;
   box-shadow: var(--box-shadow);
   font-weight: 500;
-  transition: all 0.4s ease;
+  transition: var(--animationSmooth);
   text-align: center;
   font-weight: 300;
 }
@@ -84,7 +84,7 @@
     padding: 0;
     width: 20px;
     height: 20px;
-    transition: transform 200ms ease-out, background-color 200ms ease-out;
+    transition: var(--animationSmooth)
   }
   
   .remove-item-div button:hover {

@@ -9,7 +9,7 @@ const Sidebar = React.memo(({ handleSidebar }) => {
     <section className="sidebar">
       <CloseButton onClick={handleSidebar} />
       <ul>
-        <li>
+        <li onClick={handleSidebar}>
           <Link to="/" >Home</Link>
         </li>
         <li>

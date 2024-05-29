@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Footer.css";
+import React from "react";
 import BackToTop from "../components/BackToTop";
 
 export default function Footer() {

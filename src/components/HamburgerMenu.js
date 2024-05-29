@@ -1,4 +1,6 @@
 import { RxHamburgerMenu } from "react-icons/rx";
+import React from "react";
+
 export default function HamburgerMenu({ handleSidebar}) {
 
   return (

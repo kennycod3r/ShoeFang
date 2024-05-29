@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './promo.css';
 import { IoCloseOutline } from "react-icons/io5";
-
+import React from "react";
 
 export default function Promo(){
     const[show, setShow] = useState(true);

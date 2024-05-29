@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./Hero.css";
 import { MdArrowOutward } from "react-icons/md";
 import { BsBellFill, BsFillBellSlashFill } from "react-icons/bs";
+import React from "react";
 
 export default function Hero() {
   const [reminder, serReminder] = useState(false);

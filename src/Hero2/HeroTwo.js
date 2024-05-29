@@ -1,9 +1,9 @@
 import "./HeroTwo.css";
+import React from "react";
 import ShoeBox from "../img/shoeBox.webp";
 import nikeshoe1 from "../img/nikeshoe1.webp";
 import nikeshoe2 from "../img/nikeshoe2.webp";
 import nikesvg from "../assets/nike.svg";
-
 
 export default function HeroTwo() {
   return (
@@ -16,8 +16,13 @@ export default function HeroTwo() {
             YOU Purchase.
           </h2>
           <div className="nikesvg-des">
-            <div><img src={nikesvg} alt="sponsorImg"/></div>
-            <p className="small"> Travis Scott x Air Jordan 1 Low Golf “Olive”</p>
+            <div>
+              <img src={nikesvg} alt="sponsorImg" />
+            </div>
+            <p className="small">
+              {" "}
+              Travis Scott x Air Jordan 1 Low Golf “Olive”
+            </p>
           </div>
           <div className="hero2-img-container">
             <div className="ad-card">

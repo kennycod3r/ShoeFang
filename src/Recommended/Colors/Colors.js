@@ -1,5 +1,7 @@
 import Input from "../../components/Input";
 import './Colors.css';
+import React from "react";
+
 export default function Colors({ handleChange }) {
   return (
     <div className="color-grid">

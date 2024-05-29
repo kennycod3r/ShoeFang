@@ -3,7 +3,7 @@ import SearchInput from "../SearchInput/SearchInput";
 import Buttons from "../components/Buttons";
 import "./Recommended.css";
 import Colors from "./Colors/Colors";
-
+import React from "react";
 
 export default function Recommended({ handleClick, query, handleInputChange,handleChange }) {
   return (

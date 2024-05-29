@@ -1,9 +1,9 @@
 import { useState, useCallback, useMemo } from "react";
-
 import Products from "../Products/Products";
 import Recommended from "../Recommended/Recommended";
 import Sidebar from "../Sidebar/Sidebar";
 import storeData from "../db/data";
+import React from "react";
 import HeadText from "../HeadText/HeadText";
 import Hero from "../Hero/Hero";
 import AllCategorySection from "../All Category/AllCategorySection";
@@ -21,21 +21,15 @@ export default function ShoeFang() {
 
   const handleBag = useCallback(
     (newBagData) => {
-      setBag((prevState) => {
-        const updatedBag = [...prevState, newBagData];
-        return updatedBag;
-      });
+      setBag((prevState) => [...prevState, newBagData]);
       setTotal((prevState) => prevState + Number(newBagData.newPrice));
     },
-    [setBag, setTotal]
+    []
   );
 
-  const hanldleRemoveBagItem = useCallback(
+  const handleRemoveBagItem = useCallback(
     (imageId, newItemPrice) => {
-      setBag((prevState) => {
-        const filteredBagData = prevState.filter((item) => item.imageId !== imageId);
-        return filteredBagData
-      });
+      setBag((prevState) => prevState.filter((item) => item.imageId !== imageId));
       setTotal((prevState) => prevState - Number(newItemPrice));
     },
     [setBag]
@@ -43,28 +37,19 @@ export default function ShoeFang() {
 
   const handleSidebar = useCallback(() => {
     setCloseSidebar((prevState) => !prevState);
-  }, [setCloseSidebar]);
+  }, []);
 
-  const handleInputChange = useCallback(
-    (event) => {
-      setQuery(event.target.value);
-    },
-    [setQuery]
-  );
+  const handleInputChange = useCallback((event) => {
+    setQuery(event.target.value);
+  }, []);
 
-  const handleRadioChange = useCallback(
-    (event) => {
-      setSelectedCategory(event.target.value);
-    },
-    [setSelectedCategory]
-  );
+  const handleRadioChange = useCallback((event) => {
+    setSelectedCategory(event.target.value);
+  }, []);
 
-  const handleClick = useCallback(
-    (event) => {
-      setSelectedCategory(event.target.value);
-    },
-    [setSelectedCategory]
-  );
+  const handleClick = useCallback((event) => {
+    setSelectedCategory(event.target.value);
+  }, []);
 
   const filteredItems = useMemo(() => {
     return storeData.filter((storeItem) =>
@@ -72,42 +57,34 @@ export default function ShoeFang() {
     );
   }, [query]);
 
-  const filteredData = useCallback(
-    (storeData, selected, query) => {
-      let filteredStoreData = storeData;
+  const filteredData = useMemo(() => {
+    let filteredStoreData = storeData;
 
-      if (query) {
-        filteredStoreData = filteredItems;
-      }
+    if (query) {
+      filteredStoreData = filteredItems;
+    }
 
-      if (selected) {
-        filteredStoreData = filteredStoreData.filter(
-          ({ color, company, title }) =>
-            color === selected ||
-            company === selected ||
-            title === selected |
-            title === selected
-        );
-      }
-
-      return filteredStoreData.map(
-        ({ img, title, newPrice, prevPrice, id }) => (
-          <AllCategoryCard
-            key={id}
-            image={img}
-            title={title}
-            newPrice={newPrice}
-            prevPrice={prevPrice}
-            imageId={id}
-            handleBag={handleBag}
-          />
-        )
+    if (selectedCategory) {
+      filteredStoreData = filteredStoreData.filter(
+        ({ color, company, title }) =>
+          color === selectedCategory ||
+          company === selectedCategory ||
+          title === selectedCategory
       );
-    },
-    [filteredItems, handleBag]
-  );
+    }
 
-  const result = filteredData(storeData, selectedCategory, query);
+    return filteredStoreData.map(({ img, title, newPrice, prevPrice, id }) => (
+      <AllCategoryCard
+        key={id}
+        image={img}
+        title={title}
+        newPrice={newPrice}
+        prevPrice={prevPrice}
+        imageId={id}
+        handleBag={handleBag}
+      />
+    ));
+  }, [filteredItems, selectedCategory, handleBag,query]);
 
   return (
     <>
@@ -115,14 +92,10 @@ export default function ShoeFang() {
         handleSidebar={handleSidebar}
         total={total}
         bagData={bag}
-        hanldleRemoveBagItem={hanldleRemoveBagItem}
+        hanldleRemoveBagItem={handleRemoveBagItem}
       />
 
-      {closeSidebar && (
-        <Sidebar
-          handleSidebar={handleSidebar}
-        />
-      )}
+      {closeSidebar && <Sidebar handleSidebar={handleSidebar} />}
 
       <Hero />
       <AllCategorySection handleBag={handleBag} />
@@ -132,7 +105,7 @@ export default function ShoeFang() {
         handleChange={handleRadioChange}
         handleInputChange={handleInputChange}
       />
-      <Products result={result} />
+      <Products result={filteredData} />
       <HeroTwo />
       <Footer />
     </>

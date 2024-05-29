@@ -1,7 +1,11 @@
 //import { useState } from "react";
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import { FaCartShopping } from "react-icons/fa6";
+import { PiShoppingCartSimple } from "react-icons/pi";
 import unavailable from "../img/unavailable.webp";
 import Discount from "./Discount";
+import { useState } from "react";
+import React from "react";
+
 
 export default function AllCategoryCard({
   image,
@@ -21,8 +25,10 @@ export default function AllCategoryCard({
       imageId,
     };
     handleBag(newBagData);
+    setBagged(true);
   }
 
+  const[bagged, setBagged] =  useState(false)
   return (
     <section className="ac-card">
       <div>
@@ -35,7 +41,7 @@ export default function AllCategoryCard({
           >
             <Discount />
             <div className="flexCenter shop-circle" onClick={handleBagData}>
-              <AiOutlineShoppingCart className="nav-icons" />
+              { bagged ? <FaCartShopping className="nav-icons" /> : <PiShoppingCartSimple className="nav-icons" />}
             </div>
           </div>
         </div>

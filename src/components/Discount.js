@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Discount({noAbsolute}) {
     return (
       <div className="img-promo-div flexBase">

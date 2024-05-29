@@ -1,10 +1,11 @@
 import AllCategoryCard from "../components/AllCategoryCard";
 import "./AllCategory.css";
+import React from "react";
 import nikelogo2 from "../assets/nikelogo2.svg";
 import adidasSvg from "../assets/adidas2.svg";
 import allcategorydata from "../db/allcategorydata";
 
-export default function AllCategorySection({handleBag}) {
+export default function AllCategorySection({handleBag, hanldleRemoveBagItem}) {
   return (
     <>
       <div className="sponsor-wrapper">
@@ -30,6 +31,7 @@ export default function AllCategorySection({handleBag}) {
             handleBag={handleBag}
             description={item.description}
             imageId={item.id}
+            
           />
         ))}
       </div>

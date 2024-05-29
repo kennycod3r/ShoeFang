@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Input({ handleChange, value, title, name, color }) {
   return (
     <label className="sidebar-label-container">
