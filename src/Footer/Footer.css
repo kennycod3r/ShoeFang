@@ -12,7 +12,7 @@
   font-size: 3em;
   line-height: 1.095;
   margin-bottom: 10px;
-  color: var(--bodyColor);
+  color: inherit;
 }
 
 .Homefooter h2{

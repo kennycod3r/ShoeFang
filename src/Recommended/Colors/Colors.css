@@ -1,0 +1,74 @@
+.color-grid {
+  display: flex;
+  gap: 5px;
+}
+
+.sidebar-label-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  padding-left: 25px; /* Adjust padding to fit the checkmark */
+}
+
+.sidebar-label-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+
+  height: 14px;
+  width: 14px;
+  background-color: #d8d8d8;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.sidebar-label-container:hover .checkmark {
+  background-color: #ccc;
+}
+
+.sidebar-label-container input:checked ~ .checkmark {
+  background-color: #095334;
+}
+
+.checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.sidebar-label-container input:checked ~ .checkmark::after {
+  display: block;
+}
+
+.sidebar-label-container .checkmark::after {
+  top: 3.4px;
+  left: 3.4px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgb(234, 233, 233);
+}
+
+.all {
+  background: linear-gradient(#005dff, crimson);
+}
+
+.white {
+  background: white;
+  border: 0.1px solid black;
+}
+
+@media only screen and (max-width: 650px) {
+  .checkmark {
+    background-color: #a0a6a6;
+  }
+  .color-grid {
+    display: none;
+  }
+}

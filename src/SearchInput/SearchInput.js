@@ -9,7 +9,7 @@ export default function SearchInput({query, handleInputChange}){
 
             <input 
                 type='text' 
-                placeholder='search items'
+                placeholder='search brand or names'
                 className='search-input'
                 value={query}  
                 onChange={handleInputChange}

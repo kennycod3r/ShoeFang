@@ -1,17 +1,44 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
+import './index.css';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import ErrorPage from './ErrorPage';
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
+// Lazy load the Journal and CheckOut components
+const Journal = lazy(() => import('./Pages/Journal'));
+const CheckOut = lazy(() => import('./Pages/CheckOut'));
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "Journal/:JournalId",
+    element: (
+      <Suspense fallback={<div className="loading-wrapper"><AiOutlineLoading3Quarters className="loading-circle"/></div>}>
+        <Journal />
+      </Suspense>
+    ),
+  },
+  {
+    path: "CheckOut/:bag",
+    element: (
+      <Suspense fallback={<div className="loading-wrapper"><AiOutlineLoading3Quarters className="loading-circle"/></div>}>
+        <CheckOut />
+      </Suspense>
+    ),
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-

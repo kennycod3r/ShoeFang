@@ -1,10 +1,10 @@
 :root {
-  --primary: #3e3b34;
+  --primaryGreen: #3e3b34;
 }
 
 .head-text {
   text-transform: uppercase;
-  color: #3e3b34;
+  color: var(--primaryGreen);
   line-height: 1.1;
   font-size: 27px;
   letter-spacing: -0.045em;
@@ -17,6 +17,10 @@
   width: 1.5rem;
   height: 1.3rem;
   color: var(--primary);
+}
+
+#sidebar {
+  color: #303030;
 }
 
 .outer-div {
@@ -32,7 +36,6 @@
 
 .inner-div {
   width: 100%;
-  overflow: hidden;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   justify-content: center;
@@ -73,22 +76,15 @@
   width: 100%;
 }
 
-.div-three div {
-  display: flex;
-  align-items: center;
-  justify-content: right;
-}
-
 .hamburger {
   display: inline-block;
   cursor: pointer;
-  transition-duration: 0.15s;
-  transition-timing-function: linear;
+  transition-duration: var(--animationSmooth);
   color: inherit;
-  background-color: transparent;
   border: 0;
   margin: 0;
-  overflow: visible;
+  display: flex;
+  align-items: center;
   z-index: 999;
 }
 
@@ -96,110 +92,33 @@
   opacity: 0.7;
 }
 
-.hamburger.is-active:hover {
-  opacity: 1;
-  color: #000;
-}
-
-.hamburger.is-active .hamburger-inner,
-.hamburger.is-active .hamburger-inner::before,
-.hamburger.is-active .hamburger-inner::after {
-  background-color: rgb(16, 16, 16);
-}
-
-.hamburger-box {
-  width: 20px;
+.hamburger-icon, .acc-icon, .account-svg{
+  width: 25px;
   height: 20px;
-  display: inline-block;
-  position: relative;
+  color: inherit;
+}
+.placeholder {
+  min-height: 100svh; /* Adjust the height to match the expected content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0; /* Optional: for visual indication */
 }
 
-.hamburger-inner {
-  display: block;
-  top: 50%;
-}
-
-.hamburger-inner,
-.hamburger-inner::before,
-.hamburger-inner::after {
-  width: 20px;
-  height: 1.1px;
-  background-color: #000;
-  border-radius: 4px;
-  position: absolute;
-  transition-duration: 0.15s;
-  transition-timing-function: ease;
-  z-index: 999;
-}
-
-.hamburger-inner::before,
-.hamburger-inner::after {
-  content: "";
-  display: block;
-}
-
-.hamburger-inner::before {
-  top: -5px;
-}
-
-.hamburger-inner::after {
-  bottom: -5px;
-}
-
-/* 3DX */
-.hamburger--3dx .hamburger-box {
-  perspective: 80px;
-}
-
-.hamburger--3dx .hamburger-inner {
-  transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1),
-    background-color 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-
-.hamburger--3dx .hamburger-inner::before,
-.hamburger--3dx .hamburger-inner::after {
-  transition: transform 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-
-.hamburger--3dx.is-active .hamburger-inner {
-  background-color: transparent !important;
-  transform: rotateY(180deg);
-}
-
-.hamburger--3dx.is-active .hamburger-inner::before {
-  background-color: black;
-  transform: translate3d(0, 5px, 0) rotate(45deg);
-}
-
-.hamburger--3dx.is-active .hamburger-inner::after {
-  background-color: black;
-  transform: translate3d(0, -5px, 0) rotate(-45deg);
-}
-
-.showMobile {
+.dontSbs{
   display: none;
-  cursor: pointer;
 }
-
-.acc-icon {
-  max-width: 50px;
-}
-
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 780px) {
   .outer-div {
-    margin: 0;
-    padding: 10px;
-    min-height: 4rem;
-    border-bottom: 1.2px solid #1d1d1b33;
+    position: sticky;
+    top: 0;
   }
-
-  .showMobile {
+  .dontSbs{
     display: block;
-    font-size: small;
   }
-
-  .div-one {
+  .show-mobile {
     display: none;
+    font-size: small;
   }
 
   .bag-mobile {
@@ -207,4 +126,8 @@
     justify-content: right;
     align-items: center;
   }
+}
+
+.head-text {
+  font-size: 20px;
 }

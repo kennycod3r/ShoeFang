@@ -1,59 +1,57 @@
 //import { useState } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import ColorPicker from "./colorPicker";
+import unavailable from "../img/unavailable.webp";
+import Discount from "./Discount";
 
-export default function AllCategoryCard({ image, description, title }) {
-  //const [hovered, setHovered] = useState(true);
-
-  let animateCircle = {
-    animation: "pulse .4s ease",
-    animationDelay: ".5s",
-  };
-
-  function handleHover() {
-    //setHovered(!hovered);
+export default function AllCategoryCard({
+  image,
+  description,
+  title,
+  newPrice,
+  prevPrice,
+  handleBag,
+  imageId,
+}) {
+  function handleBagData() {
+    const newBagData = {
+      title,
+      newPrice,
+      prevPrice,
+      imageUrl: image,
+      imageId,
+    };
+    handleBag(newBagData);
   }
 
-  function handleHover2() {
-    //setHovered(true);
-  }
-  //onMouseEnter={handleHover}
-  //onMouseLeave={handleHover2}
   return (
-    <>
-      <section className="Ac-card">
-        <div>
-          <a href="www.nowhere.com" className="ac-item-wrapper">
-            <div
-              className="img-absolute-div"
-              style={{
-                backgroundImage: `url(${image})`,
-                objectFit: "contain",
-                width: "100%",
-              }}
-            >
-              
-                <div className="img-promo-div flexBase">
-                  <div className="new-div">Sales</div>
-                  <div className="new-div img-promo">20%</div>
-                </div>
-              
-
-              <div
-                className="flexCenter shop-circle"
-              >
-                <AiOutlineShoppingCart className="nav-icons" />
-              </div>
-
-              <ColorPicker hovered={false} />
+    <section className="ac-card">
+      <div>
+        <div className="ac-item-wrapper">
+          <div
+            className="img-absolute-div"
+            style={{
+              backgroundImage: `url(${image || unavailable})`,
+            }}
+          >
+            <Discount />
+            <div className="flexCenter shop-circle" onClick={handleBagData}>
+              <AiOutlineShoppingCart className="nav-icons" />
             </div>
-          </a>
-          <div className="ac-card-details">
-            <h3>{title}</h3>
-            <p className="small light-grey">{description}</p>
           </div>
         </div>
-      </section>
-    </>
+        <div className="ac-card-details">
+          <h3>{title}</h3>
+          <p className={`small ${description ? "light-grey" : ""}`}>
+            {description ? (
+              description
+            ) : (
+              <>
+                <del>{prevPrice}</del> £{newPrice}
+              </>
+            )}
+          </p>
+        </div>
+      </div>
+    </section>
   );
 }

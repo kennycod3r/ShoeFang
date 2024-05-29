@@ -45,10 +45,7 @@
     height: 40px;
   }
   
-  .ad-card img {
-    width: 100%;
-    display: block;
-  }
+
 
   .nikesvg-des{
     display: flex;
@@ -62,6 +59,7 @@
     font-weight: bold;
     line-height: normal;
     cursor: pointer;
+    text-align: center;
     letter-spacing: normal;
     text-decoration: underline;
   }

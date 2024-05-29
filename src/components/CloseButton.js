@@ -1,7 +1,7 @@
 import React from 'react';
 
-const CloseButton = ({handleSidebar}) => (
-  <div className="close-button" onClick={handleSidebar}>
+const CloseButton = ({ onClick }) => (
+  <div className="close-button" onClick={onClick}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="20"

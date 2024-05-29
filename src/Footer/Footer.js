@@ -5,7 +5,7 @@ import BackToTop from "../components/BackToTop";
 export default function Footer() {
   const [userEmail, setUserEmail] = useState({
     eventValue: "",
-    subscribeMsg: "subscribe to our newsletter",
+    subscribeMsg: "Subscribe to our newsletter",
   });
 
   const handleSubscribe = (event) => {
@@ -21,7 +21,7 @@ export default function Footer() {
     } else if (userEmail.eventValue.length < 10) {
       setUserEmail((prevState) => ({
         ...prevState,
-        subscribeMsg: "enter a valid email",
+        subscribeMsg: "Enter a valid email",
       }));
     } else {
       setUserEmail((prevState) => ({
@@ -54,19 +54,19 @@ export default function Footer() {
             <li>Can I get a refund on my order?</li>
             <li>Can I make changes to my order?</li>
             <li>Can I cancel my order?</li>
-            <li>do you offer any Discounts?</li>
+            <li>Do you offer any Discounts?</li>
           </ul>
         </div>
         <div className="footer--text footer-col">
           <div>
-            <h2>
+            <h2 className="headtext-small">
              Subscribe and Receive
               <br />
               News And Offers!
             </h2>
           </div>
           <div className="newsletter-div">
-            <p style={{color:userEmail.subscribeMsg === "enter a valid email" ? "red": "#f1f1f1"}}>{userEmail.subscribeMsg}</p>
+            <p style={{color:userEmail.subscribeMsg === "Enter a valid email" ? "red": "#f1f1f1"}}>{userEmail.subscribeMsg}</p>
             <input
               placeholder="Enter Your Email Address"
               type="email"

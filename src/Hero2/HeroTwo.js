@@ -16,7 +16,7 @@ export default function HeroTwo() {
             YOU Purchase.
           </h2>
           <div className="nikesvg-des">
-            <img src={nikesvg} alt="sponsorImg"/>
+            <div><img src={nikesvg} alt="sponsorImg"/></div>
             <p className="small"> Travis Scott x Air Jordan 1 Low Golf “Olive”</p>
           </div>
           <div className="hero2-img-container">

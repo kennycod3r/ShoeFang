@@ -1,17 +1,22 @@
+import React, { useState } from "react";
 import Promo from "../Promo/promo";
 import fangs from "../assets/fangs.svg";
-//import { FiHeart } from 'react-icons/fi';
 import { AiOutlineUserAdd } from "react-icons/ai";
 import "./HeadText.css";
+import { Outlet, Link } from "react-router-dom";
 import BagItems from "../BagItems/BagItems";
-import { useState } from "react";
 import HamburgerMenu from "../components/HamburgerMenu";
 
-export default function HeadText({ handleSidebar, bagData }) {
-  const [bagOpen, setBagOpen] = useState(false);
+export default function HeadText({
+  handleSidebar,
+  bagData,
+  total,
+  hanldleRemoveBagItem,
+}) {
+const [bagOpen, setBagOpen] = useState(false);
 
   function handleBagOpen() {
-    setBagOpen(!bagOpen);
+    setBagOpen((prevState) => !prevState);
   }
 
   return (
@@ -19,34 +24,52 @@ export default function HeadText({ handleSidebar, bagData }) {
       <Promo />
       <div className="flexCenter outer-div">
         <div className="inner-div">
-          <div className="div-one">
+          <div className="div-one" id="sidebar">
             <HamburgerMenu handleSidebar={handleSidebar} />
-            <div>JOURNAL</div>
-            <div>ABOUT</div>
-            <div>SALE</div>
-            <div>SHOP</div>
-          </div>
-          <HamburgerMenu handleSidebar={handleSidebar} showMobile="showMobile" />
-          <div className="flexCenter div-two">
-            <a href="www.nonw.com" className="head-text">
-              ShoeFang<img src={fangs} className="fangs" alt="fang" />
-            </a>
-          </div>
-          <div className="showMobile bag-mobile" onClick={handleBagOpen}>
-            BAG ({bagData.length})
-          </div>
-          <div className="div-one div-three">
-            <div className="flexSpaceBetween" onClick={handleBagOpen}>
-              BAG ({bagData.length})
+            <div className="show-mobile">
+              <Link to="/Journal/1">JOURNAL</Link>
             </div>
-            <div>ACCOUNT</div>
-            <div className="acc-icon">
-              <AiOutlineUserAdd className="nav-icons" />
+            <div className="show-mobile">ABOUT</div>
+            {bagData ? (
+              <>
+                <div className="show-mobile">SALE</div>
+                <div className="show-mobile">SHOP</div>
+              </>
+            ) : null}
+          </div>
+
+          <div className="flexCenter div-two">
+            <Link to="/" className="head-text">
+              ShoeFang
+              <img src={fangs} className="fangs" alt="fang" />
+            </Link>
+          </div>
+
+          <div className="div-one div-three">
+            {bagData ? (
+              <div className="flexSpaceBetween" onClick={handleBagOpen}>
+                BAG ({bagData ? bagData.length : null})
+              </div>
+            ) : null}
+            <div className="show-mobile">ACCOUNT</div>
+            <div className="acc-icon show-mobile">
+              <AiOutlineUserAdd className="account-svg" />
             </div>
           </div>
         </div>
       </div>
-      <BagItems bagData={bagData} bagOpen={bagOpen} />
+      <div id="detail">
+        <Outlet />
+      </div>
+      {bagOpen && (
+        <BagItems
+          bagData={bagData}
+          bagOpen={bagOpen}
+          total={total}
+          handleBagOpen={handleBagOpen}
+          hanldleRemoveBagItem={hanldleRemoveBagItem}
+        />
+      )}
     </>
   );
 }
